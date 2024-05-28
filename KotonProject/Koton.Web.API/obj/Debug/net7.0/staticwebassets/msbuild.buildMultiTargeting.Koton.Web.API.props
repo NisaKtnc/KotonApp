@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Koton.Web.API.props" />
+</Project>
