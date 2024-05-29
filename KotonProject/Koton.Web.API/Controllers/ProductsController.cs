@@ -16,8 +16,8 @@ namespace Koton.Web.API.Controllers
     public class ProductsController : ControllerBase
     {
 
-        IProductsService _productsService;
-        IMapper _mapper;
+        private readonly IProductsService _productsService;
+        private readonly IMapper _mapper;
 
 
         public ProductsController(IProductsService productsService)
@@ -40,11 +40,16 @@ namespace Koton.Web.API.Controllers
         }
 
         [HttpPost("AddProduct")]
-        public async Task<Koton.Entities.Models.Product> AddProducts(ProductDto productDto)
+        public async Task<Koton.Entities.Models.Product> AddProduct(ProductDto productDto)
         {
             return await _productsService.AddProduct(productDto);
 
         }
-       
+        [HttpPost("DeleteById")]
+        public async Task<Koton.Entities.Models.Product> DeleteProductById (int Id)
+        {
+           return await _productsService.DeleteProductById(Id);
+        }
+
     }
 }

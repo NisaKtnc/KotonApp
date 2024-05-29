@@ -33,12 +33,20 @@ namespace Koton.Business.Concrete
         {
 
             return await _productRepository.GetAllAsync();
-
         }
-
         public async Task<Product> GetProductById(int Id)
         {
             return await _productRepository.GetByIdAsync(Id);
         }
+        public async Task<Product> DeleteProductById (int Id)
+        {
+           var product =  await _productRepository.GetByIdAsync(Id); // id ile ilgili kaydı getir.
+           if (product == null)
+                throw new Exception("Product is not found"); // kayıt dönmüyorsa uyarı var çünkü yok zaten.
+           
+           await _productRepository.DeleteAsync(product);   // buraya geldiyse kod, demek ki kayıt var ve silebiliriz.
+           return product; // en son da sildiğimiz kaydı dönüyoruz.
+        }
+        
     }
 }
