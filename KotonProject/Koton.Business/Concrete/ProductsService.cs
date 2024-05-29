@@ -44,9 +44,15 @@ namespace Koton.Business.Concrete
            if (product == null)
                 throw new Exception("Product is not found"); // kayıt dönmüyorsa uyarı var çünkü yok zaten.
            
-           await _productRepository.DeleteAsync(product);   // buraya geldiyse kod, demek ki kayıt var ve silebiliriz.
+           await _productRepository.DeleteAsync(product); // buraya geldiyse kod, demek ki kayıt var ve silebiliriz.
            return product; // en son da sildiğimiz kaydı dönüyoruz.
         }
-        
+        public async Task<Product> UpdateProduct (ProductDto productDto)
+        {
+            var product = _mapper.Map<Product>(productDto);
+            await _productRepository.UpdateAsync(product);
+            return product;
+
+        }
     }
 }

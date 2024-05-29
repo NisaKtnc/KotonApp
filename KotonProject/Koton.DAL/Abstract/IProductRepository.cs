@@ -9,6 +9,5 @@ namespace Koton.DAL.Abstract
 {
     public interface IProductRepository : IRepository<Product>
     {
-        
     }
 }

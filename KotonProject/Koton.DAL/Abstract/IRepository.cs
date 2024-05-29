@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Koton.DAL.Abstract
 {
-    public interface IRepository<T> where T : class, IBaseEntity, new()
+    public interface IRepository<T> where T : BaseEntity, IBaseEntity, new()
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);

@@ -2,7 +2,9 @@
 using Koton.Business.Abstract;
 using Koton.Business.Concrete;
 using Koton.Business.DTO_s;
+using Koton.Entities.Models;
 using Koton.Web.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +19,6 @@ namespace Koton.Web.API.Controllers
     {
 
         private readonly IProductsService _productsService;
-        private readonly IMapper _mapper;
-
 
         public ProductsController(IProductsService productsService)
         {
@@ -29,7 +29,7 @@ namespace Koton.Web.API.Controllers
         {
             var res = await _productsService.GetAllProductsAsync();
             return res;
-            //Tüm verileri çekmek için kullanılan method
+            //Tüm verileri çekmek için kullanılan metot
         }
         [HttpGet("GetById")]
         public async Task<Koton.Entities.Models.Product> GetById(int Id)
@@ -50,6 +50,11 @@ namespace Koton.Web.API.Controllers
         {
            return await _productsService.DeleteProductById(Id);
         }
-
+        [HttpPut("UpdateProduct")]
+        public async Task<Koton.Entities.Models.Product> UpdateProduct(ProductDto productDto)
+        {
+            var updt = await _productsService.UpdateProduct(productDto);
+            return updt;
+        }
     }
 }

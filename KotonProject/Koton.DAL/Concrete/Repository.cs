@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Koton.DAL.Concrete
 {
-    public class Repository<T> : IRepository<T> where T : class, IBaseEntity, new()
+    public class Repository<T> : IRepository<T> where T : BaseEntity, IBaseEntity, new()
     {
         private readonly KotonDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -29,7 +29,7 @@ namespace Koton.DAL.Concrete
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task AddAsync(T entity)
@@ -43,6 +43,7 @@ namespace Koton.DAL.Concrete
             _dbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
         }
 
         public async Task DeleteAsync(T entity)
@@ -53,6 +54,7 @@ namespace Koton.DAL.Concrete
             }
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
+
         }
     }
 }

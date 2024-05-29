@@ -12,31 +12,24 @@ namespace Koton.DAL.Concrete
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        private readonly KotonDbContext _dbContext;
-       
-        public ProductRepository(KotonDbContext kotonDbContext) : base(kotonDbContext)
-        {
-            _dbContext = kotonDbContext;           
-        }
+        private readonly KotonDbContext _context;
+        private readonly DbSet<Product> _dbSet;
 
-        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        public ProductRepository(KotonDbContext kotonDbContext, KotonDbContext context) : base(kotonDbContext)
         {
-            return await _dbContext.Products.ToListAsync();
-        }
+            _context = context;
+            _dbSet = _context.Set<Product>();
 
-        public async Task<Product> GetProductByIdAsync(int id)
-        {
-            return await _dbContext.Products.FindAsync(id);
-        }
-        //public async Task<Products> AddAsync()
-        //{
-        //    return await _dbContext.Product.AddAsync();
-        //}
-        public async Task<Product> AddAsync(Product product)
-        {
-            var result = await _dbContext.Products.AddAsync(product);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
-        }
+        }       
+        //bu repositorye bir şey eklemek gerekiyorsa eğer : 
+
+        //Task<IEnumerable<T>> GetAllAsync();
+        //Task<T> GetByIdAsync(int id);
+        //Task AddAsync(T entity);
+        //Task UpdateAsync(T entity);
+        //Task DeleteAsync(T entity);
+
+        // bu yukarıdakilerden mantıken farklı bir amaca hizmet ediyor olması lazım. bunlar zaten productrepository içerisinde         
     }
 }
+
