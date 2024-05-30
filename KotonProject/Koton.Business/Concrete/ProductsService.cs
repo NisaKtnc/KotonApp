@@ -1,13 +1,6 @@
 ﻿using Koton.Business.Abstract;
 using Koton.DAL.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Koton.Entities.Models;
-using Koton.DAL.Concrete;
 using Koton.Business.DTO_s;
 using AutoMapper;
 

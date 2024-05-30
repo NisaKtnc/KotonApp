@@ -1,15 +1,7 @@
-﻿using AutoMapper;
-using Koton.Business.Abstract;
-using Koton.Business.Concrete;
+﻿using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
-using Koton.Entities.Models;
-using Koton.Web.API.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Runtime.CompilerServices;
+
 
 namespace Koton.Web.API.Controllers
 {
