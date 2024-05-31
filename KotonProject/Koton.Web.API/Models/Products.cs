@@ -12,5 +12,7 @@
         public string ProductImage { get; set; }
         public string ProductDescription { get; set; }
         public double SalesPrice { get; set; }
+        public string ProductCode { get; set; }    
+        
     }
 }

@@ -45,9 +45,12 @@ namespace Koton.Business.Concrete
             return await _categoryRepository.GetByIdAsync(Id);
         }
 
-        public Task<Category> UpdateCategory()
+        public async Task<Category> UpdateCategory(CategoryDto categoryDto)
         {
-            throw new NotImplementedException();
+            var update = _mapper.Map<Category>(categoryDto);  
+            await _categoryRepository.UpdateAsync(update);
+            return update;  
+
         }
     }
 }

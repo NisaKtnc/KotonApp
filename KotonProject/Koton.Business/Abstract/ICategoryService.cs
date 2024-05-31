@@ -10,6 +10,6 @@ namespace Koton.Business.Abstract
         Task<Entities.Models.Category> GetCategoryById(int Id);
         Task<Category> AddCategory(CategoryDto categoryDto);
         Task<Entities.Models.Category> DeleteCategoryById(int Id);
-        Task<Category> UpdateCategory();
+        Task<Category> UpdateCategory(CategoryDto categoryDto);
     }
 }

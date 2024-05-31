@@ -19,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
