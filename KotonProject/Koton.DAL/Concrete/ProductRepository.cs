@@ -11,11 +11,9 @@ namespace Koton.DAL.Concrete
         private readonly KotonDbContext _context;
         private readonly DbSet<Product> _dbSet;
 
-        public ProductRepository(KotonDbContext kotonDbContext, KotonDbContext context) : base(kotonDbContext)
+        public ProductRepository(KotonDbContext kotonDbContext) : base(kotonDbContext)
         {
-            _context = context;
-            _dbSet = _context.Set<Product>();
-
+            
         }       
         //bu repositorye bir şey eklemek gerekiyorsa eğer : 
 

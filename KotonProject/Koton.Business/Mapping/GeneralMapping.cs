@@ -14,6 +14,8 @@ namespace Koton.Business.Mapping
             CreateMap<CategoryDto,Category>().ReverseMap();      
             
             CreateMap<CustomerDto,Customer>().ReverseMap();
+
+            CreateMap<OrderDto,Order>().ReverseMap();   
         }
     }
 }

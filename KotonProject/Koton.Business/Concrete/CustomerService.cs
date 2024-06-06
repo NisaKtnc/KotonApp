@@ -3,11 +3,6 @@ using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
 using Koton.DAL.Abstract;
 using Koton.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Koton.Business.Concrete
 {

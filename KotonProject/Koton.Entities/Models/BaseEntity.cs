@@ -9,12 +9,12 @@ namespace Koton.Entities.Models
 {
     public abstract class BaseEntity : IBaseEntity
     {
-        public DateTime CreatedDate {  get; set; }  
-        public string CreatedUsername { get; set; } 
+        public DateTime CreatedDate {  get; set; }  = DateTime.Now;
+        public string? CreatedUsername { get; set; } 
         public DateTime? ModifiedTime { get; set; }
         public string? ModifiedUsername { get; set; }
         public DateTime? DeletedTime { get; set; }
-        public string DeletedUsername { get; set; } 
+        public string? DeletedUsername { get; set; } 
         public bool IsActive { get; set; } = false;
         public bool IsDeleted { get; set; } = false;
         public int Id { get; set; }

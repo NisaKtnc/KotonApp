@@ -26,12 +26,18 @@ namespace Koton.DAL.Concrete
             return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
-            await _dbSet.AddAsync(entity);
+            var result = await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
+
+            return result.Entity;
+        }
+        public async Task AddBulkAsync(List<T> entity)
+        {
+            await _dbSet.AddRangeAsync(entity);
             await _context.SaveChangesAsync();
         }
-
         public async Task UpdateAsync(T entity)
         {
             _dbSet.Attach(entity);
