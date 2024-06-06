@@ -11,6 +11,7 @@ namespace Koton.Business.DTO_s
         public string ProductDescription { get; set; }
         public double SalesPrice { get; set; }
         public int CategoryId { get; set; }
+        public int ColorId { get; set; }
         public int Id { get; set; }
 
 

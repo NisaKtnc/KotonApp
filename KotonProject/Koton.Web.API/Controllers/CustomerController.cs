@@ -9,7 +9,7 @@ namespace Koton.Web.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly ICustomerService _customerService; 
 
         public CustomerController(ICustomerService customerService)
         {

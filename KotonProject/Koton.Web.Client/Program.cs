@@ -1,16 +1,28 @@
+using Koton.Business.Abstract;
+using Koton.Business.Concrete;
 using Koton.Entities.Context;
+using Koton.Web.Client.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
 // Configure DbContext with SQL Server
 builder.Services.AddDbContext<KotonDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddHttpClient("kotonWebApi", x =>
+{
+
+    x.BaseAddress = new Uri("https://localhost:7117/api/");
+});
+
 
 var app = builder.Build();
 
@@ -30,6 +42,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
+
+

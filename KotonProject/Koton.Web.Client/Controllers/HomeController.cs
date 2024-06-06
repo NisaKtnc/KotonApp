@@ -7,6 +7,14 @@ namespace Koton.Web.Client.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public HomeController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+
         //private readonly ILogger<HomeController> _logger;
         //private readonly IProductService _productService;
         //public HomeController(ILogger<HomeController> logger, IProductService productService)
@@ -15,10 +23,14 @@ namespace Koton.Web.Client.Controllers
         //    _productService = productService;  //dependecy injection
         //}
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //httpclient ->   localhost4541/api/products/getallproducts;
-            //httpclient
+            return View();
+        }
+
+        public async Task<IActionResult> GetByIdProduct()
+        {
             return View();
         }
 

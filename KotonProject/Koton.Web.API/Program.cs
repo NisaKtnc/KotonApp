@@ -19,6 +19,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<ICustomerService, CustomerService>();
+
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 
@@ -33,6 +36,9 @@ builder.Services.AddDbContext<KotonDbContext>(
     options=>options.UseSqlServer(builder.Configuration.GetConnectionString
     ("DefaultConnection"))
     );
+
+
+
 
 var app = builder.Build();
 
