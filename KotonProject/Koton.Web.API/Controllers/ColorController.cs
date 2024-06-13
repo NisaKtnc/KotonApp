@@ -12,11 +12,7 @@ namespace Koton.Web.API.Controllers
         public ColorController(IColorService colorService)
         {
             _colorService = colorService;
-        }
-        public IActionResult Index()
-        {
-            return View();
-        }
+        }      
         [HttpGet("GetAllColors")]
         public async Task<IEnumerable<Koton.Entities.Models.Color>> GetAllColors()
         { 

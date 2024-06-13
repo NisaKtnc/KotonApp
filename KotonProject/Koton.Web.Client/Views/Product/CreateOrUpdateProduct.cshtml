@@ -37,7 +37,13 @@
         <label for="inputState" class="form-label">Category Name</label>
         <select id="inputState" class="form-select">
             <option selected>Choose...</option>
-            <option>...</option>
+            @if(ViewBag.Category != null)
+            {
+                foreach(var category in ViewBag.Category)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
         </select>
     </div
     <div class="col-12">

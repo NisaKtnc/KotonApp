@@ -18,7 +18,7 @@ namespace Koton.Web.Client.Services
         public async Task<IEnumerable<Color>> GetAllColorAsync()
         {
             var client = _httpClientFactory.CreateClient(apiName);
-            var content = (await client.GetAsync("Color/GetAllColorAsync")).Content;
+            var content = (await client.GetAsync("Color/GetAllColors")).Content;
 
             var result = await content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<IEnumerable<Color>>(result, options);

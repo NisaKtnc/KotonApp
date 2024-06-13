@@ -1,10 +1,8 @@
-﻿using Koton.Business.Abstract;
-using Koton.Business.DTO_s;
+﻿using Koton.Business.DTO_s;
 using Koton.Entities.Models;
 using Koton.Web.Client.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq.Expressions;
-using System.Text.Json;
+
 
 
 namespace Koton.Web.Client.Controllers
@@ -12,9 +10,11 @@ namespace Koton.Web.Client.Controllers
     public class ProductController : Controller
     {
        private readonly IProductService _productService;
-        public ProductController(IProductService productService) 
+        private readonly IColorService _colorService;
+        public ProductController(IProductService productService,IColorService colorService) 
         { 
             _productService = productService;
+            _colorService = colorService;
         }
 
 
@@ -44,8 +44,10 @@ namespace Koton.Web.Client.Controllers
             Product product = null;
             if(Id.HasValue)
                product = await _productService.GetProductById(Id.Value);
-
+            var colors = await _colorService.GetAllColorAsync();
+            ViewBag.Colors = colors;
             return View(product);
+            
         }
 
         [HttpPost("CreateOrUpdateProduct")]
@@ -55,7 +57,12 @@ namespace Koton.Web.Client.Controllers
 
             return View(product);
         }
-        
+        [HttpGet("GetAllColors")]
+        public async Task<IActionResult> GetAllColorsAsync()
+        {
+            var allcolors = await _colorService.GetAllColorAsync();
+            return View(allcolors);
+        }
         
     }
 }
