@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Koton.Entities.Models;
+
 
 namespace Koton.Business.Abstract
 {
     public interface IColorService
     {
+        Task<IEnumerable<Color>> GetAllColorAsync();
     }
 }

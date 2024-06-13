@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\views\\product\\createorupdateproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\views\\product\\createorupdateproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|solutionrelative:koton.web.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.api\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|solutionrelative:koton.web.api\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.api\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|solutionrelative:koton.web.api\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.api\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|solutionrelative:koton.web.api\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B07D5944-A5F8-47A6-A61B-131F3EC4273F}|Koton.Web.API\\Koton.Web.API.csproj|solutionrelative:koton.web.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8A22D38D-5153-4D31-813B-0F5E8F78EE33}|Koton.Entities\\Koton.Entities.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.entities\\models\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8A22D38D-5153-4D31-813B-0F5E8F78EE33}|Koton.Entities\\Koton.Entities.csproj|solutionrelative:koton.entities\\models\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\controllers\\colorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|c:\\users\\nisa_\\onedrive\\masa\u00FCst\u00FC\\kotonproje_git\\kotonapp\\kotonproject\\koton.web.client\\services\\colorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B67B450E-1ADA-4A52-BED2-B33B7EB4F10C}|Koton.Web.Client\\Koton.Web.Client.csproj|solutionrelative:koton.web.client\\services\\colorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,106 +42,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Color.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Entities\\Models\\Color.cs",
-              "RelativeDocumentMoniker": "Koton.Entities\\Models\\Color.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Entities\\Models\\Color.cs",
-              "RelativeToolTip": "Koton.Entities\\Models\\Color.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Program.cs",
+              "RelativeDocumentMoniker": "Koton.Web.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Program.cs",
+              "RelativeToolTip": "Koton.Web.API\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABwAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T11:02:46.436Z",
+              "WhenOpened": "2024-06-13T12:21:35.268Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "Koton.Web.API\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "Koton.Web.API\\Controllers\\ProductsController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAmwBsAAAAIAAAA",
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Koton.Web.API\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Models\\Category.cs",
+              "RelativeToolTip": "Koton.Web.API\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:56:29.224Z",
+              "WhenOpened": "2024-06-13T12:21:28.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CreateOrUpdateProduct.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Views\\Product\\CreateOrUpdateProduct.cshtml",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Views\\Product\\CreateOrUpdateProduct.cshtml",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Views\\Product\\CreateOrUpdateProduct.cshtml*",
-              "RelativeToolTip": "Koton.Web.Client\\Views\\Product\\CreateOrUpdateProduct.cshtml*",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACwAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T10:52:59.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Koton.Web.Client\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Koton.Web.API\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Models\\Order.cs",
+              "RelativeToolTip": "Koton.Web.API\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:52:41.483Z",
+              "WhenOpened": "2024-06-13T12:21:05.88Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Koton.Web.Client\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAjwDoAAAAIAAAA",
+              "Title": "ColorController.cs",
+              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ColorController.cs",
+              "RelativeDocumentMoniker": "Koton.Web.API\\Controllers\\ColorController.cs",
+              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ColorController.cs",
+              "RelativeToolTip": "Koton.Web.API\\Controllers\\ColorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:12:10.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Controllers\\CustomerController.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "Koton.Web.Client\\Controllers\\CustomerController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:51:41.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ColorService.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Services\\ColorService.cs",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Services\\ColorService.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Services\\ColorService.cs",
-              "RelativeToolTip": "Koton.Web.Client\\Services\\ColorService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:48:31.87Z",
+              "WhenOpened": "2024-06-13T12:16:14.876Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ColorController.cs",
-              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\ColorController.cs",
-              "RelativeDocumentMoniker": "Koton.Web.Client\\Controllers\\ColorController.cs",
-              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.Client\\Controllers\\ColorController.cs",
-              "RelativeToolTip": "Koton.Web.Client\\Controllers\\ColorController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAaAAAA",
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Koton.Web.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\Nisa_\\OneDrive\\Masa\u00FCst\u00FC\\KotonProje_git\\KotonApp\\KotonProject\\Koton.Web.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Koton.Web.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T10:12:03.974Z",
+              "WhenOpened": "2024-06-13T12:15:54.876Z",
               "EditorCaption": ""
             }
           ]

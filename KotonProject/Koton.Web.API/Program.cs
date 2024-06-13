@@ -25,6 +25,9 @@ builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 
+builder.Services.AddTransient<IColorService, ColorService>();
+builder.Services.AddTransient<IColorRepository, ColorRepository>();
+
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 
