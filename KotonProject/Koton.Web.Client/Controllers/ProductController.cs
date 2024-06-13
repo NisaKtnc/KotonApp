@@ -55,10 +55,8 @@ namespace Koton.Web.Client.Controllers
 
             return View(product);
         }
-        public async Task<IActionResult> GetColor()
-        {
-            var color = await _productService.
-        }
+        
+        
     }
 }
 

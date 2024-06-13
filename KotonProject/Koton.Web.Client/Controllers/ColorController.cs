@@ -1,4 +1,5 @@
-﻿using Koton.Web.Client.Services;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Koton.Web.Client.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Koton.Web.Client.Controllers
@@ -9,8 +10,14 @@ namespace Koton.Web.Client.Controllers
 
         public ColorController(IColorService colorService)
         {
-            _colorService = colorService;
+            _colorService = colorService;         
         }   
+        public async Task<IActionResult> GetAllColorAsync()
+        {
+            var allcolors = await _colorService.GetAllColorAsync();
+            ViewBag.Colors = allcolors;
+            return View();
+        }
     }
     
 }

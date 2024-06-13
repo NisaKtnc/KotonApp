@@ -1,4 +1,5 @@
 ﻿@model Product
+
 @{
     
 }
@@ -22,9 +23,17 @@
     </div>
     <div class="col-md-6">
         <label for="inputCity" class="form-label">Color</label>
-        <input asp-for="Color.Name" type="text" class="form-control" id="inputCity">
+         <select id="inputState" name ="colorId"class="form-select">
+            <option selected>Choose...</option>
+            @if(ViewBag.Colors != null)
+            {
+                foreach(var color in ViewBag.Colors)
+                {
+                     <option value="@color.Id">@color.Name</option>
+                }
+            }
     </div>
-    <div class="col-md-12">
+    <div class="col-md-6">
         <label for="inputState" class="form-label">Category Name</label>
         <select id="inputState" class="form-select">
             <option selected>Choose...</option>
