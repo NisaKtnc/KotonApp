@@ -1,8 +1,7 @@
 ﻿using Koton.Business.DTO_s;
 using Koton.Entities.Models;
 
-
-namespace Koton.Business.Abstract
+namespace Koton.Web.Client.Services
 {
     public interface ICustomerService
     {
@@ -11,6 +10,7 @@ namespace Koton.Business.Abstract
         Task<Customer> AddCustomer(CustomerDto customerDto);
         Task<Entities.Models.Customer> DeleteCustomerById(int Id);
         Task<Customer> UpdateCustomer(CustomerDto customerDto);
-        Task<Customer> Login(LoginModelDto loginModel);
+        Task<Customer> LoginAsync (LoginModelDto loginModel);
+     
     }
 }

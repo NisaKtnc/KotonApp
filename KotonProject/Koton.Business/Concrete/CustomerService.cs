@@ -3,6 +3,7 @@ using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
 using Koton.DAL.Abstract;
 using Koton.Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Koton.Business.Concrete
 {
@@ -43,11 +44,20 @@ namespace Koton.Business.Concrete
             return await _customerRepository.GetByIdAsync(Id);
         }
 
+     
+
         public async Task<Customer> UpdateCustomer(CustomerDto customerDto)
         {
             var customer = _mapper.Map<Customer>(customerDto);
             await _customerRepository.UpdateAsync(customer);
             return customer;
+        }
+
+        public async Task<Customer> Login(LoginModelDto loginModel)
+        {
+           
+           var res=await _customerRepository.LoginAsync(loginModel.Email, loginModel.Password);
+            return res;
         }
     }
 }

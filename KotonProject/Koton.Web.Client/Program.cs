@@ -1,5 +1,3 @@
-using Koton.Business.Abstract;
-using Koton.Business.Concrete;
 using Koton.Entities.Context;
 using Koton.Web.Client.Services;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +15,7 @@ builder.Services.AddDbContext<KotonDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddHttpClient("kotonWebApi", x =>
 {
 

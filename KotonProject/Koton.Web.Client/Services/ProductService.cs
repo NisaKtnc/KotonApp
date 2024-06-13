@@ -44,9 +44,13 @@ namespace Koton.Web.Client.Services
 
         }
 
-        public Task<Product> GetProductById(int Id)
+        public async Task<Product> GetProductById(int Id)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.GetAsync($"Products/GetById?Id={Id}")).Content;
+
+            var result = await content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<Product>(result, options);
         }
     }
 }

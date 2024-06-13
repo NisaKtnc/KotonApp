@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Koton.DAL.Concrete
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity, IBaseEntity, new()
+    public class Repository<T> : IRepository<T> where T : BaseEntity, new()
     {
         private readonly KotonDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -56,5 +56,11 @@ namespace Koton.DAL.Concrete
             await _context.SaveChangesAsync();
 
         }
+
+        //public async Task<T> LoginAsync(T entity)
+        //{
+        //    return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+        //    return await _dbSet.FirstOrDefaultAsync();
+        //}
     }
 }

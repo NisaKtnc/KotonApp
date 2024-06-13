@@ -19,7 +19,13 @@
                 </div>
                 <!-- Product actions-->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href=@($"/Product/ProductInformation?Id={product.Id}")>Detail</a></div>
+                </div> 
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href=@($"/Product/CreateOrUpdateProduct?Id={product.Id}")>Edit</a></div>
+                    <select id="inputState" class="form-select">
+                        <option selected>Color.Id</option>
+                        <option>...</option>
                 </div>
             </div>
         </div>

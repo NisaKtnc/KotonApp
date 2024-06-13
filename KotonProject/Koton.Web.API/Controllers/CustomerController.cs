@@ -42,7 +42,13 @@ namespace Koton.Web.API.Controllers
         {
             var update = await _customerService.UpdateCustomer(customerDto);
             return update;
-        }  
+        }
+        [HttpPost("Login")]
+        public async Task<Koton.Entities.Models.Customer> Login (LoginModelDto loginModelDto)
+        {
+            var login = await _customerService.Login(loginModelDto);
+            return login;
+        }
 
     }
 }

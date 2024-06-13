@@ -11,5 +11,6 @@ namespace Koton.DAL.Abstract
         Task AddBulkAsync(List<T> entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
+       
     }
 }

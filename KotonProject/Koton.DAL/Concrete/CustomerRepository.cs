@@ -15,6 +15,12 @@ namespace Koton.DAL.Concrete
             _context = context;
             _dbSet = _context.Set<Customer>();
         }
+
+        public async Task<Customer>LoginAsync(string email,string password)
+        {
+            var response= await _dbSet.FirstOrDefaultAsync(x => x.CustomerEmail == email &&x.CustomerPassword==password);
+            return response;
+        }
     }
     
 }

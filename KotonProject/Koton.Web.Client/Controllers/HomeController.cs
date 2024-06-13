@@ -33,6 +33,22 @@ namespace Koton.Web.Client.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Login()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ProductInformation()
+        {
+            return View();
+        }
+        public async Task<IActionResult> CreateOrUpdateProduct()
+        {
+            return View();
+        }
+        public async Task<IActionResult> GetAllColorAsync()
+        {
+            return View();
+        }
 
         //public IActionResult Privacy()
         //{
