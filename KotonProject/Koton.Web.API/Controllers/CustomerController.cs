@@ -1,5 +1,6 @@
 ﻿using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,11 +10,12 @@ namespace Koton.Web.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _customerService; 
-
-        public CustomerController(ICustomerService customerService)
+        private readonly ICustomerService _customerService;
+        private readonly ITokenService _tokenService;
+        public CustomerController(ICustomerService customerService, ITokenService tokenService)
         {
             _customerService = customerService;
+            _tokenService = tokenService;
         }
         [HttpGet("GetAllCustomers")]
         public async Task<IEnumerable<Koton.Entities.Models.Customer>> GetAllCustomers()
@@ -44,10 +46,20 @@ namespace Koton.Web.API.Controllers
             return update;
         }
         [HttpPost("Login")]
-        public async Task<Koton.Entities.Models.Customer> Login (LoginModelDto loginModelDto)
+        public async Task<LoginModelDto> Login (LoginModelDto loginModelDto)
         {
-            var login = await _customerService.Login(loginModelDto);
-            return login;
+            var isSuccesed = await _customerService.Login(loginModelDto);
+            if (isSuccesed)
+            {
+                var token = _tokenService.CreateToken();
+                loginModelDto.Token = token;
+                loginModelDto.IsLogged = true;
+            }
+            else
+                loginModelDto.IsLogged = false;    
+           
+            
+            return loginModelDto;
         }
 
     }

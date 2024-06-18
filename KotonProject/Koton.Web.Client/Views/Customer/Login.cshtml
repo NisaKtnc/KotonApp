@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+@model CustomerDto
+
 <head>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
@@ -18,15 +20,15 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#!">
+                        <form asp-controller="Customer" asp-action="Login" method="post" enctype="multipart/form-data">
                             <div class="row gy-3 gy-md-4 overflow-hidden">
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                                    <input asp-for="CustomerEmail" type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value="" required>
+                                    <input asp-for=CustomerPassword type="password" class="form-control" name="password" id="password" value="" required>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">

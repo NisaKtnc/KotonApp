@@ -10,7 +10,7 @@ namespace Koton.Web.Client.Services
         Task<Customer> AddCustomer(CustomerDto customerDto);
         Task<Entities.Models.Customer> DeleteCustomerById(int Id);
         Task<Customer> UpdateCustomer(CustomerDto customerDto);
-        Task<Customer> LoginAsync (LoginModelDto loginModel);
+        Task<LoginModelDto> LoginAsync (LoginModelDto loginModel);
      
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Koton.Business.DTO_s;
 using Koton.Entities.Models;
+using Koton.Web.Client.Extensions;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json;
 
@@ -41,13 +42,13 @@ namespace Koton.Web.Client.Services
             throw new NotImplementedException();
         }
 
-        public async Task<Customer> LoginAsync(LoginModelDto loginModel)
+        public async Task<LoginModelDto> LoginAsync(LoginModelDto loginModel)
         {
             var client = _httpClientFactory.CreateClient(apiName);
-            var content = (await client.GetAsync("Customer/LoginAsync")).Content;
+            var content = (await client.PostAsJsonAsync<LoginModelDto>("Customer/Login",loginModel)).Content;
 
             var result = await content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<Customer>(result, options);
+            return await result.DeserializeCustom<LoginModelDto>();
         }
 
 

@@ -11,6 +11,6 @@ namespace Koton.Business.Abstract
         Task<Customer> AddCustomer(CustomerDto customerDto);
         Task<Entities.Models.Customer> DeleteCustomerById(int Id);
         Task<Customer> UpdateCustomer(CustomerDto customerDto);
-        Task<Customer> Login(LoginModelDto loginModel);
+        Task<bool> Login(LoginModelDto loginModel);
     }
 }

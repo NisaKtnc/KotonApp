@@ -53,11 +53,10 @@ namespace Koton.Business.Concrete
             return customer;
         }
 
-        public async Task<Customer> Login(LoginModelDto loginModel)
-        {
-           
+        public async Task<bool> Login(LoginModelDto loginModel)
+        {          
            var res=await _customerRepository.LoginAsync(loginModel.Email, loginModel.Password);
-            return res;
+           return res!=null;
         }
     }
 }
