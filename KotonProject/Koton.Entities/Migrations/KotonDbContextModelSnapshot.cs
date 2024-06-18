@@ -228,6 +228,66 @@ namespace Koton.Entities.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Koton.Entities.Models.File", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<byte[]>("Content")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ContentPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("File");
+                });
+
             modelBuilder.Entity("Koton.Entities.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -658,6 +718,17 @@ namespace Koton.Entities.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Koton.Entities.Models.File", b =>
+                {
+                    b.HasOne("Koton.Entities.Models.Product", "Products")
+                        .WithMany("Files")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("Koton.Entities.Models.Order", b =>
                 {
                     b.HasOne("Koton.Entities.Models.Customer", "Customer")
@@ -780,6 +851,8 @@ namespace Koton.Entities.Migrations
             modelBuilder.Entity("Koton.Entities.Models.Product", b =>
                 {
                     b.Navigation("Carts");
+
+                    b.Navigation("Files");
 
                     b.Navigation("OrderDetails");
 

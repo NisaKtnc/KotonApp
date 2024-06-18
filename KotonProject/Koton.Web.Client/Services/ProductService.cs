@@ -2,6 +2,8 @@
 using Koton.Business.DTO_s;
 using Koton.Entities.Models;
 using Koton.Web.Client.Controllers;
+using Koton.Web.Client.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -11,7 +13,6 @@ namespace Koton.Web.Client.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
         public const string apiName = "kotonWebApi";
-        private static readonly JsonSerializerOptions options = new JsonSerializerOptions() {PropertyNameCaseInsensitive = true };
 
         public ProductService(IHttpClientFactory httpClientFactory)
         {
@@ -19,9 +20,35 @@ namespace Koton.Web.Client.Services
             
         }
 
-        public async Task<Product> AddProduct(ProductDto productDto)
+        public async Task<Product> AddProduct(ProductDto productDto, IFormFile formFile)
         {
-            return null;
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.PostAsJsonAsync<ProductDto>("Products/AddProduct",productDto)).Content;
+
+            var result = await content.ReadAsStreamAsync();
+            var product = await result.DeserializeCustom<Product>();
+            
+            if(formFile != null)
+            {
+                await using var memoryStream = new MemoryStream();
+                await formFile.CopyToAsync(memoryStream);
+
+                FileDto fileDto = new ()
+                {
+                    ProductId = product.Id,
+                    ContentType = formFile.ContentType,
+                    Name = formFile.FileName,
+                    Extension = System.IO.Path.GetExtension(formFile.FileName),
+                    Content = memoryStream.ToArray(),
+                    Description="dsadasdsa",
+                    ContentPath="dsadad"
+
+                };
+                var fileContent = (await client.PostAsJsonAsync<FileDto>("File/AddFile", fileDto)).Content;
+
+            }
+            return product;
+
         }
 
         public Task<Product> DeleteProductById(int Id)
@@ -40,7 +67,7 @@ namespace Koton.Web.Client.Services
             var content = (await client.GetAsync("Products/GetAllProducts")).Content;
 
             var result = await content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<IEnumerable<Product>>(result, options);
+            return await result.DeserializeCustom<IEnumerable<Product>>();
 
         }
 
@@ -50,7 +77,7 @@ namespace Koton.Web.Client.Services
             var content = (await client.GetAsync($"Products/GetById?Id={Id}")).Content;
 
             var result = await content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<Product>(result, options);
+            return await result.DeserializeCustom<Product>();
         }
     }
 }

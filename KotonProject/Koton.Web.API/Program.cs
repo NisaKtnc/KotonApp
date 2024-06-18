@@ -24,6 +24,8 @@ builder.Services.AddTransient<ICustomerService, CustomerService>();
 
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<IFileService, FileService>();
+builder.Services.AddTransient<IFileRepository, FileRepository>();
 
 builder.Services.AddTransient<IColorService, ColorService>();
 builder.Services.AddTransient<IColorRepository, ColorRepository>();

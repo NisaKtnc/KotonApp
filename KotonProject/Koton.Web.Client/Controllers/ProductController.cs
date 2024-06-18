@@ -2,6 +2,7 @@
 using Koton.Entities.Models;
 using Koton.Web.Client.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 
@@ -10,11 +11,13 @@ namespace Koton.Web.Client.Controllers
     public class ProductController : Controller
     {
        private readonly IProductService _productService;
-        private readonly IColorService _colorService;
-        public ProductController(IProductService productService,IColorService colorService) 
-        { 
+       private readonly IColorService _colorService;
+        private readonly ICategoryService _categoryService;
+        public ProductController(IProductService productService, IColorService colorService, ICategoryService categoryService)
+        {
             _productService = productService;
             _colorService = colorService;
+            _categoryService = categoryService;
         }
 
 
@@ -44,25 +47,24 @@ namespace Koton.Web.Client.Controllers
             Product product = null;
             if(Id.HasValue)
                product = await _productService.GetProductById(Id.Value);
+            
             var colors = await _colorService.GetAllColorAsync();
-            ViewBag.Colors = colors;
+            ViewBag.Colors = new SelectList(colors, "Id", "Name");
+            var categories = await _categoryService.GetAllCategoriesAsync();
+            ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
             return View(product);
             
         }
 
         [HttpPost("CreateOrUpdateProduct")]
-        public async Task<IActionResult> CreateOrUpdateProduct(ProductDto productDto)
+        public async Task<IActionResult> CreateOrUpdateProduct(ProductDto productDto, IFormFile formFile)
         {
-            var product = await _productService.AddProduct(productDto);
+            var product = await _productService.AddProduct(productDto,formFile);
 
-            return View(product);
+            return RedirectToAction("Index");
         }
-        [HttpGet("GetAllColors")]
-        public async Task<IActionResult> GetAllColorsAsync()
-        {
-            var allcolors = await _colorService.GetAllColorAsync();
-            return View(allcolors);
-        }
+        
+       
         
     }
 }

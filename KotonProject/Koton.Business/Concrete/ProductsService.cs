@@ -25,11 +25,11 @@ namespace Koton.Business.Concrete
         public async Task<IEnumerable<Entities.Models.Product>> GetAllProductsAsync()
         {
 
-            return await _productRepository.GetAllAsync();
+            return await _productRepository.GetAllAsync(c=> c.Files);
         }
         public async Task<Product> GetProductById(int Id)
         {
-            return await _productRepository.GetByIdAsync(Id);
+            return await _productRepository.GetByIdAsync(Id,c=> c.Files);
         }
         public async Task<Product> DeleteProductById (int Id)
         {

@@ -17,13 +17,18 @@ builder.Services.AddDbContext<KotonDbContext>(options =>
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IColorService, ColorService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddHttpClient("kotonWebApi", x =>
 {
 
     x.BaseAddress = new Uri("https://localhost:7117/api/");
 });
+builder.Services.AddControllers().AddJsonOptions(x =>
+{
+    x.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
 
-
+});
+    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

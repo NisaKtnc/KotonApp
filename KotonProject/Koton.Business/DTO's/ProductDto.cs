@@ -1,4 +1,5 @@
 ﻿using Koton.Entities.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Koton.Business.DTO_s
 {
@@ -10,10 +11,10 @@ namespace Koton.Business.DTO_s
         public string ProductImage { get; set; }
         public string ProductDescription { get; set; }
         public double SalesPrice { get; set; }
+        public int ProductStock { get; set; }
         public int CategoryId { get; set; }
         public int ColorId { get; set; }
-        public int Id { get; set; }
-
+        public List<Koton.Entities.Models.File> Files { get; set; }
 
     }
 }

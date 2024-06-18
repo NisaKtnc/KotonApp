@@ -1,7 +1,9 @@
 ﻿using Koton.DAL.Abstract;
+using Koton.DAL.Extensions;
 using Koton.Entities.Context;
 using Koton.Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 
 namespace Koton.DAL.Concrete
@@ -16,22 +18,28 @@ namespace Koton.DAL.Concrete
             _dbSet = _context.Set<T>();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includes)
         {
-            return await _dbSet.ToListAsync();
+            return await _dbSet.IncludeMultiple(includes).ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
         {
-            return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbSet.IncludeMultiple(includes).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<T> AddAsync(T entity)
         {
-            var result = await _dbSet.AddAsync(entity);
+            T result = entity;
+
+            if(entity.Id != default)
+            _context.Entry(entity).State = EntityState.Modified;         
+            else
+            result = (await _dbSet.AddAsync(entity)).Entity;
+
             await _context.SaveChangesAsync();
 
-            return result.Entity;
+            return result;
         }
         public async Task AddBulkAsync(List<T> entity)
         {
@@ -63,4 +71,6 @@ namespace Koton.DAL.Concrete
         //    return await _dbSet.FirstOrDefaultAsync();
         //}
     }
+
+
 }

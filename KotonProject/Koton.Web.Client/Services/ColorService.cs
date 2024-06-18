@@ -10,7 +10,8 @@ namespace Koton.Web.Client.Services
         public const string apiName = "kotonWebApi";
         private static readonly JsonSerializerOptions options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true,
            ReferenceHandler = ReferenceHandler.IgnoreCycles};
-        
+
+    
         public ColorService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;

@@ -1,13 +1,20 @@
 ﻿@model Product
 
 @{
-    
+
 }
 
-<form class="row g-3" asp-action="CreateOrUpdateProduct" method="post">
+<form class="row g-3" asp-controller="Product" asp-action="CreateOrUpdateProduct" method="post" enctype="multipart/form-data">
+
+    <input asp-for=Id type="number" hidden class="form-control" id="inputEmail4">
+
     <div class="col-md-12">
         <label for="inputEmail4" class="form-label">Name</label>
-        <input asp-for=ProductName type="email" class="form-control" id="inputEmail4">
+        <input asp-for=ProductName type="text" class="form-control" id="inputEmail4">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Dosya Yükle</label>
+        <input type="file" name="formFile" class="form-control-file" id="exampleFormControlFile1">
     </div>
     <div class="col-md-12">
         <label for="inputPassword4" class="form-label">Price</label>
@@ -17,35 +24,26 @@
         <label for="inputAddress" class="form-label">Description</label>
         <input asp-for=ProductDescription type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
     </div>
+    <div class="col-md-12">
+        <label for="inputCitya" class="form-label">Color</label>
+        <select asp-for="ColorId"
+                asp-items="@ViewBag.Colors as SelectList" class="form-select">
+            <option>Please select colors</option>
+        </select>
+    </div>
+    <div class="col-md-12">
+        <label for="inputCitya" class="form-label">Category</label>
+        <select asp-for="CategoryId"
+                asp-items="@ViewBag.Categories as SelectList" class="form-select">
+            <option>Please select categories</option>
+        </select>
+    </div>
+
     <div class="col-12">
         <label for="inputAddress2" class="form-label">Stock</label>
         <input asp-for=ProductStock type="number" class="form-control" id="inputAddress2" placeholder="">
     </div>
-    <div class="col-md-6">
-        <label for="inputCity" class="form-label">Color</label>
-         <select id="inputState" name ="colorId"class="form-select">
-            <option selected>Choose...</option>
-            @if(ViewBag.Colors != null)
-            {
-                foreach(var color in ViewBag.Colors)
-                {
-                     <option value="@color.Id">@color.Name</option>
-                }
-            }
-    </div>
-    <div class="col-md-6">
-        <label for="inputState" class="form-label">Category Name</label>
-        <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            @if(ViewBag.Category != null)
-            {
-                foreach(var category in ViewBag.Category)
-                {
-                    <option value="@category.Id">@category.Name</option>
-                }
-            }
-        </select>
-    </div
+
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
