@@ -16,7 +16,10 @@ namespace Koton.Business.Mapping
             CreateMap<CustomerDto,Customer>().ReverseMap();
 
             CreateMap<OrderDto,Order>().ReverseMap();   
+
             CreateMap<FileDto,Koton.Entities.Models.File>().ReverseMap();   
+
+            
         }
     }
 }

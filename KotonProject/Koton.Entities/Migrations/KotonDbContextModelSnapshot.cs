@@ -187,9 +187,6 @@ namespace Koton.Entities.Migrations
                     b.Property<string>("CustomerEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CustomerGender")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
 
@@ -202,14 +199,14 @@ namespace Koton.Entities.Migrations
                     b.Property<string>("CustomerSurname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CustomerUsername")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("DeletedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedUsername")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -720,13 +717,11 @@ namespace Koton.Entities.Migrations
 
             modelBuilder.Entity("Koton.Entities.Models.File", b =>
                 {
-                    b.HasOne("Koton.Entities.Models.Product", "Products")
+                    b.HasOne("Koton.Entities.Models.Product", null)
                         .WithMany("Files")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Koton.Entities.Models.Order", b =>

@@ -17,9 +17,14 @@ namespace Koton.Web.Client.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<Customer> AddCustomer(CustomerDto customerDto)
+        public async Task<Customer> AddCustomer(CustomerDto customerDto)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.PostAsJsonAsync<CustomerDto>("Customer/Register", customerDto)).Content;
+
+            var result = await content.ReadAsStreamAsync();
+            return await result.DeserializeCustom<Customer>();
+
         }
 
         public Task<Customer> DeleteCustomerById(int Id)

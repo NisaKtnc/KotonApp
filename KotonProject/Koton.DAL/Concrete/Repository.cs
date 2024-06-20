@@ -64,12 +64,6 @@ namespace Koton.DAL.Concrete
             await _context.SaveChangesAsync();
 
         }
-
-        //public async Task<T> LoginAsync(T entity)
-        //{
-        //    return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
-        //    return await _dbSet.FirstOrDefaultAsync();
-        //}
     }
 
 

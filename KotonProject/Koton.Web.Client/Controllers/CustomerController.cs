@@ -1,6 +1,10 @@
-﻿using Koton.Business.DTO_s;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Koton.Business.DTO_s;
+using Koton.Entities.Enums;
 using Koton.Web.Client.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Koton.Web.Client.Controllers
@@ -40,6 +44,21 @@ namespace Koton.Web.Client.Controllers
 
             }
             else return View(loginModelDto);
+        }
+        public IActionResult Register()
+        {
+            var genders = from Gender d in Enum.GetValues(typeof(Gender))
+                          select new { ID = (int)d, Name = d.ToString() };
+            ViewBag.Genders = new SelectList(genders, "ID", "Name");
+
+            return View();
+        }
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register(CustomerDto customerDto)
+        {
+           
+            var customer = await _customerService.AddCustomer(customerDto);
+            return View("Login");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
+using Koton.Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace Koton.Web.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -46,6 +48,7 @@ namespace Koton.Web.API.Controllers
             return update;
         }
         [HttpPost("Login")]
+        [AllowAnonymous]
         public async Task<LoginModelDto> Login (LoginModelDto loginModelDto)
         {
             var isSuccesed = await _customerService.Login(loginModelDto);
@@ -61,6 +64,12 @@ namespace Koton.Web.API.Controllers
             
             return loginModelDto;
         }
-
+        [HttpPost("Register")]
+        [AllowAnonymous]
+        public async Task<Customer> Register(CustomerDto customerDto)
+        {
+            var customer = await _customerService.AddCustomer(customerDto);
+            return customer;
+        }
     }
 }

@@ -58,5 +58,12 @@ namespace Koton.Business.Concrete
            var res=await _customerRepository.LoginAsync(loginModel.Email, loginModel.Password);
            return res!=null;
         }
+
+        public async Task<Customer> Register(CustomerDto customerDto)
+        {
+           var customer = _mapper.Map<Customer>(customerDto);
+           var result = await _customerRepository.AddAsync(customer);
+           return result;
+        }
     }
 }
