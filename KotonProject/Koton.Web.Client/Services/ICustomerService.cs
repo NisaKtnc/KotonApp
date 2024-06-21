@@ -11,6 +11,6 @@ namespace Koton.Web.Client.Services
         Task<Entities.Models.Customer> DeleteCustomerById(int Id);
         Task<Customer> UpdateCustomer(CustomerDto customerDto);
         Task<LoginModelDto> LoginAsync (LoginModelDto loginModel);
-     
+        Task<bool> CustomerIsInRole(string role);
     }
 }

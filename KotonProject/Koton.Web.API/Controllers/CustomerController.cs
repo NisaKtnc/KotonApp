@@ -1,6 +1,7 @@
 ﻿using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
 using Koton.Entities.Models;
+using Koton.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +15,13 @@ namespace Koton.Web.API.Controllers
     {
         private readonly ICustomerService _customerService;
         private readonly ITokenService _tokenService;
-        public CustomerController(ICustomerService customerService, ITokenService tokenService)
+        private readonly SharedIdentity _sharedIdentity;
+
+        public CustomerController(ICustomerService customerService, ITokenService tokenService, SharedIdentity sharedIdentity)
         {
             _customerService = customerService;
             _tokenService = tokenService;
+            _sharedIdentity = sharedIdentity;
         }
         [HttpGet("GetAllCustomers")]
         public async Task<IEnumerable<Koton.Entities.Models.Customer>> GetAllCustomers()
@@ -54,7 +58,7 @@ namespace Koton.Web.API.Controllers
             var isSuccesed = await _customerService.Login(loginModelDto);
             if (isSuccesed)
             {
-                var token = _tokenService.CreateToken();
+                var token = await _tokenService.CreateToken(loginModelDto.Email);
                 loginModelDto.Token = token;
                 loginModelDto.IsLogged = true;
             }
@@ -64,12 +68,19 @@ namespace Koton.Web.API.Controllers
             
             return loginModelDto;
         }
+
+        // rolleri apiden çek
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<Customer> Register(CustomerDto customerDto)
         {
             var customer = await _customerService.AddCustomer(customerDto);
             return customer;
+        }
+        [HttpGet("CustomerIsInRole")]
+        public bool CustomerIsInRole(string role)
+        {
+            return _sharedIdentity.IsInRole(role);
         }
     }
 }

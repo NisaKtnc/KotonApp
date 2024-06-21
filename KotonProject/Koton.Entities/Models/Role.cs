@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Koton.Entities.Models
 {
-    public class Roles
+    public class Role : BaseEntity
     {
         public string RoleName { get; set; }    
-        public bool IsActive {  get; set; } 
-
+        public ICollection<CustomerRole> CustomerRoles { get; set; }
     }
 }

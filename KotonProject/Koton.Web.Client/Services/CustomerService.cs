@@ -9,7 +9,6 @@ namespace Koton.Web.Client.Services
     public class CustomerService : ICustomerService
     {
         public const string apiName = "kotonWebApi";
-        private static readonly JsonSerializerOptions options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
         private readonly IHttpClientFactory _httpClientFactory;
 
         public CustomerService(IHttpClientFactory httpClientFactory)
@@ -41,7 +40,7 @@ namespace Koton.Web.Client.Services
         {
             throw new NotImplementedException();
         }
-           
+
         public Task<Customer> UpdateCustomer(CustomerDto customerDto)
         {
             throw new NotImplementedException();
@@ -50,14 +49,20 @@ namespace Koton.Web.Client.Services
         public async Task<LoginModelDto> LoginAsync(LoginModelDto loginModel)
         {
             var client = _httpClientFactory.CreateClient(apiName);
-            var content = (await client.PostAsJsonAsync<LoginModelDto>("Customer/Login",loginModel)).Content;
+            var content = (await client.PostAsJsonAsync<LoginModelDto>("Customer/Login", loginModel)).Content;
 
             var result = await content.ReadAsStreamAsync();
             return await result.DeserializeCustom<LoginModelDto>();
         }
 
-
- 
+        public async Task<bool> CustomerIsInRole(string role)
+        {
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.GetAsync($"Customer/CustomerIsInRole?role={role}")).Content;
+            var result = await content.ReadAsStreamAsync();
+            
+            return await result.DeserializeCustom<bool>();
+        }
     }
 }
 

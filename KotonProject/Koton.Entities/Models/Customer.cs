@@ -25,6 +25,7 @@ namespace Koton.Entities.Models
         public ICollection<Cart> Carts { get; set; }
 
         public ICollection<Review> Review { get; set; }
+        public ICollection<CustomerRole> CustomerRoles { get; set; }
 
 
     }

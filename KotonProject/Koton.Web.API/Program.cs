@@ -12,6 +12,7 @@ using Koton.Business.Mapping;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Koton.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,9 @@ builder.Services.AddTransient<IColorRepository, ColorRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddSingleton<SharedIdentity>();
 
 builder.Services.AddTransient<IProductsService, ProductsService>();
 
@@ -83,6 +87,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

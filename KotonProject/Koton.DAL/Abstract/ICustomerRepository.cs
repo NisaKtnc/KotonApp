@@ -9,6 +9,7 @@ namespace Koton.DAL.Abstract
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
-        public Task<Customer> LoginAsync(string email, string password);
+        public Task<Customer> LoginAsync(string email, string password); 
+        public Task<Customer> GetCustomerByEmail(string email);
     }
 }

@@ -1,4 +1,5 @@
 using Koton.Entities.Context;
+using Koton.Shared;
 using Koton.Web.Client.Extensions;
 using Koton.Web.Client.Services;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +26,9 @@ builder.Services.AddHttpClient("kotonWebApi", x =>
 
     x.BaseAddress = new Uri("https://localhost:7117/api/");
 }).AddHttpMessageHandler<HttpClientAuthenticationDelegate>();
+builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddSingleton<SharedIdentity>();
 builder.Services.AddControllers().AddJsonOptions(x =>
 {
     x.JsonSerializerOptions.PropertyNameCaseInsensitive = true;

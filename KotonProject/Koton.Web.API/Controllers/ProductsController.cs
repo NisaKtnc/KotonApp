@@ -1,5 +1,6 @@
 ﻿using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
+using Koton.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +14,12 @@ namespace Koton.Web.API.Controllers
     {
 
         private readonly IProductsService _productsService;
+        private readonly SharedIdentity _sharedIdentity;
 
-        public ProductsController(IProductsService productsService)
+        public ProductsController(IProductsService productsService, SharedIdentity sharedIdentity)
         {
             _productsService = productsService;
+            _sharedIdentity = sharedIdentity;
         }
         [HttpGet("GetAllProducts")]
         public async Task<IEnumerable<Koton.Entities.Models.Product>> GetAllProducts()
@@ -50,5 +53,6 @@ namespace Koton.Web.API.Controllers
             var updt = await _productsService.UpdateProduct(productDto);
             return updt;
         }
+       
     }
 }

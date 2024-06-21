@@ -10,6 +10,7 @@ namespace Koton.Business.Abstract
 {
     public interface ITokenService
     {
-        public string CreateToken();
-    }
-}
+        Task<string> CreateToken(string email);
+
+
+} }

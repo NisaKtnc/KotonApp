@@ -23,9 +23,20 @@ namespace Koton.Entities.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Size> Sizes { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<CustomerRole>  CustomerRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CustomerRole>().
+                HasKey(x => new { x.RoleId,x.CustomerId});
+            modelBuilder.Entity<CustomerRole>().
+                HasOne(x => x.Role).
+                WithMany(y => y.CustomerRoles);
+            modelBuilder.Entity<CustomerRole>().
+                HasOne(x => x.Customer).
+                WithMany(y => y.CustomerRoles);
+
             base.OnModelCreating(modelBuilder);
 
  

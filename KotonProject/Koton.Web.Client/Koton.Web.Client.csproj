@@ -29,6 +29,7 @@
     <ProjectReference Include="..\Koton.Business\Koton.Business.csproj" />
     <ProjectReference Include="..\Koton.DAL\Koton.DAL.csproj" />
     <ProjectReference Include="..\Koton.Entities\Koton.Entities.csproj" />
+    <ProjectReference Include="..\Koton.Shared\Koton.Shared.csproj" />
   </ItemGroup>
 
 </Project>
