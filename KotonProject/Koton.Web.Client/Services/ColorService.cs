@@ -8,10 +8,6 @@ namespace Koton.Web.Client.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
         public const string apiName = "kotonWebApi";
-        private static readonly JsonSerializerOptions options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true,
-           ReferenceHandler = ReferenceHandler.IgnoreCycles};
-
-    
         public ColorService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
@@ -22,7 +18,7 @@ namespace Koton.Web.Client.Services
             var content = (await client.GetAsync("Color/GetAllColors")).Content;
 
             var result = await content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<IEnumerable<Color>>(result, options);
+            return await JsonSerializer.DeserializeAsync<IEnumerable<Color>>(result);
         }
     }
 }

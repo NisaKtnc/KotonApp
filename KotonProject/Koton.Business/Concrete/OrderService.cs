@@ -3,6 +3,7 @@ using Koton.Business.Abstract;
 using Koton.Business.DTO_s;
 using Koton.DAL.Abstract;
 using Koton.Entities.Models;
+using Koton.Shared;
 
 
 namespace Koton.Business.Concrete
@@ -12,22 +13,25 @@ namespace Koton.Business.Concrete
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderDetailRepository _orderDetailRepository;
         private readonly IMapper _mapper;
-
-        public OrderService(IOrderRepository orderRepository, IMapper mapper, IOrderDetailRepository orderDetailRepository)
+        private readonly SharedIdentity _identity;
+        public OrderService(IOrderRepository orderRepository, IMapper mapper, IOrderDetailRepository orderDetailRepository, SharedIdentity identity)
         {
             this._orderRepository = orderRepository;
             this._mapper = mapper;
             _orderDetailRepository = orderDetailRepository;
+            _identity = identity;
         }
 
         public async Task<Order> AddOrder(OrderDto orderDto)
         {
+            orderDto.CustomerId = Convert.ToInt32(_identity.UserId);
+            orderDto.PaymentId = 1;
             var order = _mapper.Map<Order>(orderDto);
             order.OrderTotalPrice = orderDto.Items.Sum(x => x.SalesPrice);
+
             var result = await _orderRepository.AddAsync(order);
 
-            var items = orderDto.Items.All(c => { c.OrderId = result.Id; return true; });
-            var orderDetail = _mapper.Map<List<OrderDetail>>(orderDto.Items);
+            var orderDetail = _mapper.Map<IEnumerable<OrderDetail>>(orderDto.Items);
             await _orderDetailRepository.AddBulkAsync(orderDetail);
 
             return order;

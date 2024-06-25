@@ -29,7 +29,8 @@ namespace Koton.Business.Concrete
 
             var claims = new List<Claim>
             {
-                new (JwtRegisteredClaimNames.Sub, email),
+                new (JwtRegisteredClaimNames.Email, email),
+                new (JwtRegisteredClaimNames.Sid, customer.Id.ToString()),
             };
 
             foreach (var role in customer.CustomerRoles.Select(x=> x.Role)) 

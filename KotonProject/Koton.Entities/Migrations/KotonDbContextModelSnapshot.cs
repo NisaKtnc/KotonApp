@@ -338,19 +338,7 @@ namespace Koton.Entities.Migrations
                     b.Property<string>("OrderAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderCargoCompany")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderCurrency")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrderInvoiceAddress")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("OrderNote")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderStatus")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("OrderTotalPrice")
@@ -382,9 +370,6 @@ namespace Koton.Entities.Migrations
                     b.Property<string>("CreatedUsername")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Currency")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("DeletedTime")
                         .HasColumnType("datetime2");
 
@@ -403,9 +388,6 @@ namespace Koton.Entities.Migrations
                     b.Property<string>("ModifiedUsername")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -415,19 +397,10 @@ namespace Koton.Entities.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<double>("RefundAmount")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ReturnStatus")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("SalesPrice")
                         .HasColumnType("float");
 
                     b.Property<double>("ShippingCost")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TaxRate")
                         .HasColumnType("float");
 
                     b.Property<double>("UnitPrice")

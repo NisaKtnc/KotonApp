@@ -25,7 +25,7 @@ namespace Koton.DAL.Concrete
 
         public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
         {
-            return await _dbSet.IncludeMultiple(includes).FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbSet.AsNoTracking().IncludeMultiple(includes).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<T> AddAsync(T entity)
@@ -41,7 +41,7 @@ namespace Koton.DAL.Concrete
 
             return result;
         }
-        public async Task AddBulkAsync(List<T> entity)
+        public async Task AddBulkAsync(IEnumerable<T> entity)
         {
             await _dbSet.AddRangeAsync(entity);
             await _context.SaveChangesAsync();

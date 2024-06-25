@@ -27,7 +27,6 @@ builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
-
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IFileService, FileService>();
@@ -37,6 +36,7 @@ builder.Services.AddTransient<IColorService, ColorService>();
 builder.Services.AddTransient<IColorRepository, ColorRepository>();
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 
 builder.Services.AddHttpContextAccessor();
@@ -44,13 +44,14 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<SharedIdentity>();
 
 builder.Services.AddTransient<IProductsService, ProductsService>();
+builder.Services.AddScoped<IBasketService, BasketService>();
 
 builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddDbContext<KotonDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString
     ("DefaultConnection"))
     );
-
+builder.Services.AddMemoryCache();
 builder.Services.AddAuthentication(x =>
 {
 
