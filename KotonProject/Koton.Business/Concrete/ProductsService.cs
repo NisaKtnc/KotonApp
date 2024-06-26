@@ -10,16 +10,23 @@ namespace Koton.Business.Concrete
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
-        public ProductsService(IMapper mapper,IProductRepository productRepository)
+        private readonly IFileRepository _fileRepository;
+        public ProductsService(IMapper mapper, IProductRepository productRepository, IFileRepository fileRepository)
         {
-            this._productRepository = productRepository; 
+            this._productRepository = productRepository;
             this._mapper = mapper;
-        }      
+            _fileRepository = fileRepository;
+        }
         public async Task<Product> AddProduct(ProductDto productDto)
         {
             var product = _mapper.Map<Product>(productDto);                      
             await _productRepository.AddAsync(product);
 
+            if (product.Id != default)
+            {
+                var files = await _fileRepository.GetByProductId(product.Id);
+                await _fileRepository.BulkDeleteAsync(files);
+            }
             return product;
         }
         public async Task<IEnumerable<Entities.Models.Product>> GetAllProductsAsync()

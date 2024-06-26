@@ -12,15 +12,12 @@ namespace Koton.Business.DTO_s
        
         public List<OrderDetailDto> Items { get; set; }
         public int CustomerId { get; set; }
-        public string OrderStatus { get; set; }
         public string OrderAddress { get; set; }
         public double OrderTotalPrice { get; set; }
-        public string OrderCargoCompany { get; set; }
         public string OrderNote { get; set; }
         public int PaymentId { get; set; }
-        public string OrderInvoiceAddress { get; set; }
-        public int OrderCurrency { get; set; }
 
+        public BasketDto? Basket { get; set; }
 
     }
 }

@@ -17,7 +17,14 @@ namespace Koton.DAL.Concrete
 
         public FileRepository(KotonDbContext kotonDbContext) : base(kotonDbContext)
         {
+            _context = kotonDbContext;
+            _dbSet = _context.Set<Entities.Models.File>();
+        }
 
+        public async Task<IEnumerable<Entities.Models.File>> GetByProductId(int Id)
+        {
+            var files = await _dbSet.Where(x => x.ProductId == Id).ToListAsync();
+            return files;
         }
     }
 }

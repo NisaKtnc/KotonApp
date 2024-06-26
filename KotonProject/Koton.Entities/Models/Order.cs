@@ -17,8 +17,6 @@ namespace Koton.Entities.Models
         public Customer Customer { get; set; }
         public Payment Payments { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
-        public ICollection<OrderType> OrderTypes { get; set; }
-
 
     }
 }

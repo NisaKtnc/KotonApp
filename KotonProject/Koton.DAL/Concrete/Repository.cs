@@ -3,6 +3,7 @@ using Koton.DAL.Extensions;
 using Koton.Entities.Context;
 using Koton.Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
 
@@ -22,10 +23,18 @@ namespace Koton.DAL.Concrete
         {
             return await _dbSet.IncludeMultiple(includes).ToListAsync();
         }
-
+        public async Task<IEnumerable<T>> GetAllAsync2(Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
+        {
+            return await _dbSet.IncludeMultiple2(include).ToListAsync();
+        }
         public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
         {
             return await _dbSet.AsNoTracking().IncludeMultiple(includes).FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<T> GetByIdAsync2(int id, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
+        {
+            return await _dbSet.AsNoTracking().IncludeMultiple2(include).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<T> AddAsync(T entity)
@@ -63,6 +72,12 @@ namespace Koton.DAL.Concrete
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
 
+        }
+
+        public async Task BulkDeleteAsync(IEnumerable<T> entity)
+        {
+            _dbSet.RemoveRange(entity);
+            await _context.SaveChangesAsync();
         }
     }
 

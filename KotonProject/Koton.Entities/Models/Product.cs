@@ -27,8 +27,6 @@ namespace Koton.Entities.Models
         public Color Color {  get; set; }
         public Size Sizes { get; set; }
         public ICollection<Review> Review { get; set; }
-        public ICollection<OrderDetail> OrderDetails { get; set; }
-
         public ICollection<File> Files { get; set; }    
 
 

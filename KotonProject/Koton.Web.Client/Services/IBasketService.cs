@@ -7,5 +7,7 @@ namespace Koton.Web.Client.Services
         Task<bool> AddBasket(int productId);
         Task<bool> DeleteBasketById(int productId);
         Task<BasketDto> GetBasket();
+
+        Task<bool> CreateOrder(BasketDto basketDto);
     }
 }

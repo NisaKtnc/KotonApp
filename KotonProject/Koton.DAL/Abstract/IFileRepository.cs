@@ -8,5 +8,7 @@ namespace Koton.DAL.Abstract
 {
     public interface IFileRepository : IRepository<Entities.Models.File>
     {
+
+        Task<IEnumerable<Entities.Models.File>> GetByProductId(int Id);
     }
 }

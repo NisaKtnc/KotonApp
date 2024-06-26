@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Koton.Entities.Models
@@ -15,7 +16,6 @@ namespace Koton.Entities.Models
         public double ShippingCost { get; set; }
         public double SalesPrice { get; set; }
         // Navigation properties
-        public Order Order { get; set; }
         public Product Product { get; set; }
 
 

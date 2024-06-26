@@ -21,6 +21,7 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IColorService, ColorService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IBasketService, BasketService>();    
+builder.Services.AddScoped<IOrderService, OrderService>();    
 builder.Services.AddTransient<HttpClientAuthenticationDelegate>();
 builder.Services.AddHttpClient("kotonWebApi", x =>
 {

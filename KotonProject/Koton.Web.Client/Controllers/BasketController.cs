@@ -1,4 +1,5 @@
-﻿using Koton.Web.Client.Services;
+﻿using Koton.Business.DTO_s;
+using Koton.Web.Client.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Koton.Web.Client.Controllers
@@ -20,6 +21,20 @@ namespace Koton.Web.Client.Controllers
         public async Task<IActionResult> AddProduct(int Id)
         {
             var basket = await _basketService.AddBasket(Id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> DeleteProduct(int Id)
+        {
+            var basket = await _basketService.DeleteBasketById(Id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost("CreateOrder")]
+        public async Task<IActionResult> CreateOrder(BasketDto basketDto)
+        {
+            var basket = await _basketService.CreateOrder(basketDto);
             return RedirectToAction(nameof(Index));
         }
     }

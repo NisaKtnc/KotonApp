@@ -31,9 +31,15 @@ builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IFileService, FileService>();
 builder.Services.AddTransient<IFileRepository, FileRepository>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 builder.Services.AddTransient<IColorService, ColorService>();
 builder.Services.AddTransient<IColorRepository, ColorRepository>();
+builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 

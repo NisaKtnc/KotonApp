@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "";
 }
-@model BasketDto;
+@model Order;
 
 <!DOCTYPE html>
 <head>
@@ -29,50 +29,50 @@
                 <div class="title">
                     <div class="row">
                         <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                        <div class="col align-self-center text-right text-muted">3 items</div>
                     </div>
                 </div>
                 @{
-                    foreach (var item in Model.BasketItems)
+                    foreach (var item in Model.OrderDetails)
                     {
                         <div class="row border-top border-bottom">
                             <div class="row main align-items-center">
                                 <div class="col-2">
-                                    <img class="img-fluid" src="data:image/*;base64,@(Convert.ToBase64String(item.Content)) alt="..." />
+                                    <img class="img-fluid" src="data:image/*;base64,@(Convert.ToBase64String(item.Product.Files.FirstOrDefault().Content)) alt="..." />
                                 </div>
                                 <div class="col">
                                     <div class="row text-muted">Item</div>
-                                    <div class="row">@item.ProductName</div>
+                                    <div class="row">@item.Product.ProductName</div>
                                 </div>
                                 <div class="col">
-                                    <a href=@($"/Basket/DeleteProduct?Id={item.ProductId}")>-</a><a href="#" class="border">@item.Count</a><a href=@($"/Basket/AddProduct?Id={item.ProductId}")>+</a>
+                                    <a href="#">-</a><a href="#" class="border">@item.Quantity</a><a href="#">+</a>
                                 </div>
-                                <div class="col">&euro; @item.Price <span class="close">&#10005;</span></div>
+                                <div class="col">&euro; @item.Product.ProductPrice <span class="close">&#10005;</span></div>
                             </div>
                         </div>
                     }
                 }
 
-                <div class="back-to-shop"><a href="/Product/Index">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
             </div>
             <div class="col-md-4 summary">
                 <div><h5><b>Summary</b></h5></div>
                 <hr>
                 <div class="row">
-                    <div class="col text-right">Total Price : &euro; @Model.TotalPrice</div>
+                    <div class="col text-right">Total Price : &euro; @Model.OrderTotalPrice</div>
                 </div>
                 <form asp-controller="Basket" asp-action="CreateOrder" method="post" enctype="multipart/form-data">
                     <p>ADDRESS</p>
                     <input asp-for=OrderAddress type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                     <p>NOTE CODE</p>
                     <input asp-for=OrderNote type="text" class="form-control" id="inputAddress1" placeholder="1234 Main St">
-                   
+
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                         <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&euro; @Model.TotalPrice</div>
+                        <div class="col text-right">&euro; @Model.OrderTotalPrice</div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Create Order</button>
                 </form>
-            
+
             </div>
         </div>
 

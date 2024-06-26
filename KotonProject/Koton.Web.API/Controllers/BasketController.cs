@@ -34,6 +34,22 @@ namespace Koton.Web.API.Controllers
             var basket = await _basketService.AddBasket(basketRequest.ProductId);
             return basket;
         }
+        
+        [HttpPost("DeleteProductById")]
+        public async Task<bool> DeleteProductById(BasketRequest basketRequest)
+        {
+            var basket = await _basketService.DeleteProductById(basketRequest.ProductId);
+            return basket;
+        }
+
+        [HttpPost("CreateOrder")]
+        public async Task<bool> CreateOrder(BasketDto basketDto)
+        {
+            var basket = await _basketService.CreateOrder(basketDto);
+            return basket;
+        }
+
+       
 
     }
 }

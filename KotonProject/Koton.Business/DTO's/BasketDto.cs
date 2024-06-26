@@ -16,5 +16,7 @@ namespace Koton.Business.DTO_s
         }
         public List<BasketItemModel>  BasketItems { get; set; }
         public double TotalPrice => BasketItems.Sum(x => x.Price);
+        public string OrderNote { get; set; }
+        public string OrderAddress { get; set; }
     }
 }

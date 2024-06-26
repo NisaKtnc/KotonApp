@@ -1,6 +1,7 @@
 ﻿using Koton.Entities.Models;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Koton.Web.Client.Extensions;
 
 namespace Koton.Web.Client.Services
 {
@@ -18,7 +19,7 @@ namespace Koton.Web.Client.Services
             var content = (await client.GetAsync("Color/GetAllColors")).Content;
 
             var result = await content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<IEnumerable<Color>>(result);
+            return await result.DeserializeCustom<IEnumerable<Color>>();
         }
     }
 }
