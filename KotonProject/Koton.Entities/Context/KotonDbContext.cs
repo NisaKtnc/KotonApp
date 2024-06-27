@@ -44,13 +44,6 @@ namespace Koton.Entities.Context
             modelBuilder.Entity<Order>().
                 HasQueryFilter(x => x.CustomerId == UserId);
 
-
-
-
-
-
-
-
             base.OnModelCreating(modelBuilder);
 
  

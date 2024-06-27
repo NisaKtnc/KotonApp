@@ -3,7 +3,6 @@ using Koton.Entities.Context;
 using Koton.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Koton.DAL.Concrete
 {
     public class ProductRepository : Repository<Product>, IProductRepository
@@ -13,8 +12,19 @@ namespace Koton.DAL.Concrete
 
         public ProductRepository(KotonDbContext kotonDbContext) : base(kotonDbContext)
         {
-            
-        }       
+            _context = kotonDbContext;
+            _dbSet = _context.Set<Product>();   
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsByName(string searchTerm)
+        {
+
+  
+                var products = await _dbSet.Include(f=> f.Files).Where(fi => fi.ProductName.ToLower().Contains(searchTerm)).ToListAsync();
+
+                return products;  
+           
+        }
         //bu repositorye bir şey eklemek gerekiyorsa eğer : 
 
         //Task<IEnumerable<T>> GetAllAsync();

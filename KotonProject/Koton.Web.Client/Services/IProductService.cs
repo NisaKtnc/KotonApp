@@ -6,6 +6,7 @@ namespace Koton.Web.Client.Services
     public interface IProductService
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<IEnumerable<Product>> GetAllProductsByNameAsync(string searchTerm);
         Task<Entities.Models.Product> GetProductById(int Id);
         Task<Product> AddProduct(ProductDto productDto,IFormFile formFile);
         Task<Entities.Models.Product> DeleteProductById(int Id);

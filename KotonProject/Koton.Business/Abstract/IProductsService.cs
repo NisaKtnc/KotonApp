@@ -11,6 +11,8 @@ namespace Koton.Business.Abstract
         Task<Product> AddProduct(ProductDto productDto);
         Task<Entities.Models.Product> DeleteProductById (int Id);
         Task<Product> UpdateProduct (ProductDto productDto);
-        
+        Task<IEnumerable<Entities.Models.Product>> GetAllProductsByNameAsync(string searchTerm);
+
+
     }
 }

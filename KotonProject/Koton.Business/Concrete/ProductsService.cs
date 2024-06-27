@@ -3,6 +3,7 @@ using Koton.DAL.Abstract;
 using Koton.Entities.Models;
 using Koton.Business.DTO_s;
 using AutoMapper;
+using Koton.Entities.Context;
 
 namespace Koton.Business.Concrete
 {
@@ -34,6 +35,11 @@ namespace Koton.Business.Concrete
 
             return await _productRepository.GetAllAsync(c=> c.Files);
         }
+        public async Task<IEnumerable<Entities.Models.Product>> GetAllProductsByNameAsync(string searchTerm)
+        {
+
+            return await _productRepository.GetProductsByName(searchTerm);
+        }
         public async Task<Product> GetProductById(int Id)
         {
             return await _productRepository.GetByIdAsync(Id,c=> c.Files);
@@ -54,5 +60,7 @@ namespace Koton.Business.Concrete
             return product;
 
         }
+
+      
     }
 }

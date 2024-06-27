@@ -51,9 +51,13 @@ namespace Koton.Web.Client.Services
 
         }
 
-        public Task<Product> DeleteProductById(int Id)
+        public async Task<Product> DeleteProductById(int Id)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.GetAsync($"Products/DeleteProductById?Id={Id}")).Content;
+
+            var result = await content.ReadAsStreamAsync();
+            return await result.DeserializeCustom<Product>();
         }
 
         public Task<Product> UpdateProduct(ProductDto productDto)
@@ -78,6 +82,15 @@ namespace Koton.Web.Client.Services
 
             var result = await content.ReadAsStreamAsync();
             return await result.DeserializeCustom<Product>();
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByNameAsync(string searchTerm)
+        {
+            var client = _httpClientFactory.CreateClient(apiName);
+            var content = (await client.GetAsync($"Products/GetAllProductsByName?searchTerm={searchTerm}")).Content;
+
+            var result = await content.ReadAsStreamAsync();
+            return await result.DeserializeCustom<IEnumerable<Product>>();
         }
     }
 }

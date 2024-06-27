@@ -26,7 +26,14 @@ namespace Koton.Web.Client.Controllers
             var allProducts = await _productService.GetAllProductsAsync();
 
             return View(allProducts);
+        } 
+        public async Task<IActionResult> GetProductsByName(string searchTerm)
+        {
+            var allProducts = await _productService.GetAllProductsByNameAsync(searchTerm);
+
+            return View("Index", allProducts); ;
         }
+     
         public async Task<IActionResult> AddProduct()
         {
             var allProducts = await _productService.GetAllProductsAsync();
@@ -42,6 +49,14 @@ namespace Koton.Web.Client.Controllers
             return View(product);
         }
 
+
+        public async Task<IActionResult> DeleteProductById(int Id)
+        {
+            var product = await _productService.DeleteProductById(Id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> CreateOrUpdateProduct(int? Id)
         {
             Product product = null;
@@ -52,7 +67,7 @@ namespace Koton.Web.Client.Controllers
             ViewBag.Colors = new SelectList(colors, "Id", "Name");
             var categories = await _categoryService.GetAllCategoriesAsync();
             ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
-            return View(product);
+            return View(product ?? new Product());
             
         }
 
@@ -64,7 +79,6 @@ namespace Koton.Web.Client.Controllers
             return RedirectToAction("Index");
         }
         
-       
         
     }
 }

@@ -37,13 +37,13 @@ namespace Koton.Web.API.Controllers
         }
 
         [HttpPost("AddProduct")]
-        public async Task<Koton.Entities.Models.Product> AddProduct(ProductDto productDto)
+        public async Task<Koton.Entities.Models.Product> AddProduct([FromBody] ProductDto productDto)
         {
             return await _productsService.AddProduct(productDto);
 
         }
-        [HttpPost("DeleteById")]
-        public async Task<Koton.Entities.Models.Product> DeleteProductById (int Id)
+        [HttpGet("DeleteProductById")]
+        public async Task<Koton.Entities.Models.Product> DeleteProductById ([FromQuery] int Id)
         {
            return await _productsService.DeleteProductById(Id);
         }
@@ -53,6 +53,15 @@ namespace Koton.Web.API.Controllers
             var updt = await _productsService.UpdateProduct(productDto);
             return updt;
         }
-       
+
+        [HttpGet("GetAllProductsByName")]
+        public async Task<IEnumerable<Koton.Entities.Models.Product>> GetAllProductsByName(string searchTerm)
+        {
+            var res = await _productsService.GetAllProductsByNameAsync(searchTerm);
+            return res;
+        }
+
+
+
     }
 }
